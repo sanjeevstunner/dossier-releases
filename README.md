@@ -87,9 +87,9 @@ npm run sources:latest   # or move to each submodule's latest remote commit
 
 ### Releasing
 
-1. Bump `version` in `package.json`. It becomes the image tag, and `compose.yml` and `hash-password` use it when run through npm.
+1. Each image is tagged with its own submodule's `package.json` version (`dossier/` and `noperi-ts/`), read by `versions.sh`. Bump the version in that project, not here. `npm run versions` shows what will be used.
 2. If you moved the submodules, commit the new submodule pointers.
-3. Build and push multi-arch images (`linux/amd64`, `linux/arm64`) tagged `<version>` and `latest`:
+3. Build and push multi-arch images (`linux/amd64`, `linux/arm64`) tagged with that version and `latest`:
 
    ```sh
    docker login
@@ -99,7 +99,7 @@ npm run sources:latest   # or move to each submodule's latest remote commit
 
    `prerelease` runs `npm run sources` first, so the build uses the commits this repo pins.
 
-`npm run up` uses the `package.json` version. A plain `docker compose up` uses `:latest`.
+`npm run up`, `pull` and `hash-password` use the submodule versions too. A plain `docker compose up` uses `:latest`.
 
 ### Changing the stack
 

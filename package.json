@@ -7,12 +7,13 @@
     "sources:latest": "git submodule update --init --remote",
     "prerelease": "npm run sources",
     "release": "npm run release:dossier && npm run release:noperi",
-    "release:dossier": "docker buildx build --platform linux/amd64,linux/arm64 --target production -t sanjeevstunner/dossier:$npm_package_version -t sanjeevstunner/dossier:latest --push dossier",
-    "release:noperi": "docker buildx build --platform linux/amd64,linux/arm64 -t sanjeevstunner/noperi:$npm_package_version -t sanjeevstunner/noperi:latest --push noperi-ts",
-    "up": "docker compose up -d",
-    "pull": "docker compose pull",
+    "release:dossier": "./versions.sh sh -c 'docker buildx build --platform linux/amd64,linux/arm64 --target production -t sanjeevstunner/dossier:$DOSSIER_VERSION -t sanjeevstunner/dossier:latest --push dossier'",
+    "release:noperi": "./versions.sh sh -c 'docker buildx build --platform linux/amd64,linux/arm64 -t sanjeevstunner/noperi:$NOPERI_VERSION -t sanjeevstunner/noperi:latest --push noperi-ts'",
+    "up": "./versions.sh docker compose up -d",
+    "pull": "./versions.sh docker compose pull",
     "down": "docker compose down",
     "logs": "docker compose logs -f",
-    "hash-password": "docker run --rm -it sanjeevstunner/dossier:$npm_package_version hash-password"
+    "hash-password": "./versions.sh sh -c 'docker run --rm -it sanjeevstunner/dossier:$DOSSIER_VERSION hash-password'",
+    "versions": "./versions.sh sh -c 'echo dossier $DOSSIER_VERSION, noperi $NOPERI_VERSION'"
   }
 }

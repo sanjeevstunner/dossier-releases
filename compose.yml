@@ -27,7 +27,7 @@ services:
 
   app:
     # Built from ./dossier, not the upstream ghcr.io/aientech image.
-    image: sanjeevstunner/dossier:${npm_package_version:-latest}
+    image: sanjeevstunner/dossier:${DOSSIER_VERSION:-latest}
     restart: unless-stopped
     depends_on:
       db:
@@ -74,7 +74,7 @@ services:
 
   # Naukri API. Secrets (API_KEY, NAUKRI_*) come from .env (NOPERI_API_KEY, NAUKRI_*).
   noperi:
-    image: sanjeevstunner/noperi:${npm_package_version:-latest}
+    image: sanjeevstunner/noperi:${NOPERI_VERSION:-latest}
     restart: unless-stopped
     environment:
       PORT: 3000
