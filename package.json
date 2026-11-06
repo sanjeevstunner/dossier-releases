@@ -7,7 +7,7 @@
     "sources:latest": "git submodule update --init --remote",
     "prerelease": "npm run sources",
     "release": "npm run release:dossier && npm run release:noperi",
-    "release:dossier": "docker buildx build --platform linux/amd64,linux/arm64 --target production -t sanjeevstunner/dossier:$npm_package_version -t sanjeevstunner/dossier:latest --push dossier-dev",
+    "release:dossier": "docker buildx build --platform linux/amd64,linux/arm64 --target production -t sanjeevstunner/dossier:$npm_package_version -t sanjeevstunner/dossier:latest --push dossier",
     "release:noperi": "docker buildx build --platform linux/amd64,linux/arm64 -t sanjeevstunner/noperi:$npm_package_version -t sanjeevstunner/noperi:latest --push noperi-ts",
     "up": "docker compose up -d",
     "pull": "docker compose pull",

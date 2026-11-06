@@ -74,7 +74,7 @@ This repo holds no application code. It pins both apps as git submodules and bui
 
 | Path          | Repo |
 | ------------- | ---- |
-| `dossier-dev` | [sanjeevstunner/dossier](https://github.com/sanjeevstunner/dossier) (fork of the upstream Dossier) |
+| `dossier`     | [sanjeevstunner/dossier](https://github.com/sanjeevstunner/dossier) (fork of the upstream Dossier) |
 | `noperi-ts`   | [sanjeevstunner/NopeRi-ts](https://github.com/sanjeevstunner/NopeRi-ts) |
 
 Make code changes in those repos. Use this one to choose which commits ship and to publish the images.

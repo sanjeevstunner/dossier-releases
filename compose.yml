@@ -26,7 +26,7 @@ services:
       retries: 10
 
   app:
-    # Built from ./dossier-dev, not the upstream ghcr.io/aientech image.
+    # Built from ./dossier, not the upstream ghcr.io/aientech image.
     image: sanjeevstunner/dossier:${npm_package_version:-latest}
     restart: unless-stopped
     depends_on:
