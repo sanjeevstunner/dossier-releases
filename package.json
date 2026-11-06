@@ -1,6 +1,6 @@
 {
   "name": "dossier-release",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "sources": "git submodule update --init",
