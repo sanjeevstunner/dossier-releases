@@ -1,0 +1,18 @@
+{
+  "name": "dossier-release",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sources": "git submodule update --init",
+    "sources:latest": "git submodule update --init --remote",
+    "prerelease": "npm run sources",
+    "release": "npm run release:dossier && npm run release:noperi",
+    "release:dossier": "docker buildx build --platform linux/amd64,linux/arm64 --target production -t sanjeevstunner/dossier:$npm_package_version -t sanjeevstunner/dossier:latest --push dossier-dev",
+    "release:noperi": "docker buildx build --platform linux/amd64,linux/arm64 -t sanjeevstunner/noperi:$npm_package_version -t sanjeevstunner/noperi:latest --push noperi-ts",
+    "up": "docker compose up -d",
+    "pull": "docker compose pull",
+    "down": "docker compose down",
+    "logs": "docker compose logs -f",
+    "hash-password": "docker run --rm -it sanjeevstunner/dossier:$npm_package_version hash-password"
+  }
+}

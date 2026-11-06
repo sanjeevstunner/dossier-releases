@@ -1,0 +1,6 @@
+[submodule "dossier-dev"]
+	path = dossier-dev
+	url = git@github.com:sanjeevstunner/dossier.git
+[submodule "noperi-ts"]
+	path = noperi-ts
+	url = git@github.com:sanjeevstunner/NopeRi-ts.git
